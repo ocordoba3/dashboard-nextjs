@@ -24,7 +24,7 @@ export const SidebarMenuItem = ({ path, Icon, label }: Props) => {
         icon={Icon}
         size={24}
         color="currentColor"
-        strokeWidth={1.5}
+        strokeWidth={1}
       />
       <span className="ml-2 antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize text-white">
         {label}

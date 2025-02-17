@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import {
   Clock01FreeIcons,
+  CrabFreeIcons,
   DashboardSquare01FreeIcons,
 } from "@hugeicons/core-free-icons";
 import { SidebarMenuItem } from "./SidebarMenuItem";
@@ -18,9 +19,14 @@ export const Sidebar = () => {
       Icon: Clock01FreeIcons,
       path: "/dashboard/counter",
     },
+    {
+      label: "Pokemons",
+      Icon: CrabFreeIcons,
+      path: "/dashboard/pokemons",
+    },
   ];
   return (
-    <aside className="bg-gradient-to-br from-gray-800 to-gray-900 inset-0 my-4 ml-4 h-[calc(100vh-32px)] w-1/5 rounded-xl transition-transform duration-300 ">
+    <aside className="bg-gradient-to-br from-gray-800 to-gray-900 inset-0 my-4 ml-4 h-[calc(100vh-32px)] w-1/5 rounded-xl transition-transform duration-300 sticky">
       <div className="relative border-b border-white/20">
         <div className="flex flex-wrap items-center gap-4 py-6 px-8">
           <h6 className="block antialiased tracking-normal font-sans text-base font-semibold leading-relaxed text-white w-full">
