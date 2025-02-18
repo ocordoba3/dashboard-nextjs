@@ -1,6 +1,12 @@
-import { PokemonCard } from "@/app/components/PokemonCard";
-import { PokemonResponse } from "@/app/pokemons/interfaces/response";
-import { SinglePokemon } from "@/app/pokemons/interfaces/single-pokemon";
+import { PokemonCard } from "@/pokemons/components/PokemonCard";
+import { PokemonResponse } from "@/pokemons/interfaces/response";
+import { SinglePokemon } from "@/pokemons/interfaces/single-pokemon";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Lista de pókemones",
+  description: "Está es la lista de los principales pókemones",
+};
 
 async function getPokemons(limit = 20, offset = 0): Promise<SinglePokemon[]> {
   const data: PokemonResponse = await fetch(
@@ -17,9 +23,10 @@ async function getPokemons(limit = 20, offset = 0): Promise<SinglePokemon[]> {
 }
 
 export default async function PokemonsPage() {
-  const data = await getPokemons();
+  const data = await getPokemons(48);
   return (
-    <div className="flex flex-wrap justify-center items-center gap-4 p-4">
+    <div className="flex flex-wrap justify-between items-center gap-4 p-4">
+      <h1 className="text-3xl font-bold w-full">Listado de Pókemones</h1>
       {data.map((pokemon) => (
         <PokemonCard key={pokemon.id} {...pokemon} />
       ))}
