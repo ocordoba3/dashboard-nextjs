@@ -1,13 +1,12 @@
 "use client";
 
-import { HugeiconsIcon, HugeiconsIconProps } from "@hugeicons/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface Props {
   label: string;
-  Icon: HugeiconsIconProps["icon"];
+  Icon: ReactNode;
   path: string;
 }
 
@@ -20,12 +19,7 @@ export const SidebarMenuItem = ({ path, Icon, label }: Props) => {
         currentPath === path ? "bg-slate-500" : ""
       }`}
     >
-      <HugeiconsIcon
-        icon={Icon}
-        size={24}
-        color="currentColor"
-        strokeWidth={1}
-      />
+      {Icon}
       <span className="ml-2 antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize text-white">
         {label}
       </span>

@@ -1,27 +1,26 @@
 import Image from "next/image";
 import React from "react";
-import {
-  Clock01FreeIcons,
-  CrabFreeIcons,
-  DashboardSquare01FreeIcons,
-} from "@hugeicons/core-free-icons";
 import { SidebarMenuItem } from "./SidebarMenuItem";
+import { LuLayoutDashboard } from "react-icons/lu";
+import { GoNumber } from "react-icons/go";
+import { IoBugSharp } from "react-icons/io5";
 
 export const Sidebar = () => {
+  const iconSize = 24;
   const menuItems = [
     {
       label: "Dashboard",
-      Icon: DashboardSquare01FreeIcons,
+      Icon: <LuLayoutDashboard size={iconSize} />,
       path: "/dashboard/main",
     },
     {
       label: "Counter",
-      Icon: Clock01FreeIcons,
+      Icon: <GoNumber size={iconSize} />,
       path: "/dashboard/counter",
     },
     {
       label: "Pokemons",
-      Icon: CrabFreeIcons,
+      Icon: <IoBugSharp size={iconSize} />,
       path: "/dashboard/pokemons",
     },
   ];

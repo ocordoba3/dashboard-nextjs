@@ -1,10 +1,9 @@
 import { PokemonDetail } from "@/pokemons/interfaces/detail";
-import { LinkBackwardFreeIcons } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BiArrowBack } from "react-icons/bi";
 
 interface Props {
   params: { id: string };
@@ -36,12 +35,7 @@ export default async function PokemonPage({ params }: Props) {
   return (
     <div className="relative flex flex-wrap justify-between text-slate-800 h-full">
       <Link className="absolute top-2 left-2" href="/dashboard/pokemons">
-        <HugeiconsIcon
-          icon={LinkBackwardFreeIcons}
-          size={20}
-          color="currentColor"
-          strokeWidth={1}
-        />
+        <BiArrowBack size={16} strokeWidth={1} />
       </Link>
       <div className="mt-2 mb-8 w-1/2 h-full flex flex-wrap justify-center items-center">
         {/* Name */}

@@ -2,19 +2,13 @@ import Image from "next/image";
 import React from "react";
 import { SinglePokemon } from "../interfaces/single-pokemon";
 import Link from "next/link";
-import { FavouriteFreeIcons } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { GrFavorite } from "react-icons/gr";
 
 export const PokemonCard = ({ name, id }: SinglePokemon) => {
   return (
     <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-[200px] transition-all hover:scale-105">
       <div className="absolute right-4 top-2 cursor-pointer">
-        <HugeiconsIcon
-          icon={FavouriteFreeIcons}
-          size={20}
-          color="gray"
-          strokeWidth={1}
-        />
+        <GrFavorite size={20} color="gray" strokeWidth={1} />
       </div>
       <div className="mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl flex flex-wrap justify-center min-h-[130px]">
         <Image
