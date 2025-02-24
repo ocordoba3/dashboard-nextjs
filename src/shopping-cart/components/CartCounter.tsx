@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppDispatch, useAppSelector } from "@/store";
-import { decrement, increment, initCounterState } from "@/store/slices/counter";
+import { decrement, increment, initCounterState } from "@/store/counter";
 import { useEffect } from "react";
 
 async function getCounter(): Promise<{

@@ -27,7 +27,7 @@ async function getPokemons(limit = 20, offset = 0): Promise<SinglePokemon[]> {
 export default async function PokemonsPage() {
   const data = await getPokemons(48);
   return (
-    <div className="flex flex-wrap justify-between items-center gap-4 p-4">
+    <div className="flex flex-wrap justify-between items-center p-4">
       <div className="flex w-full justify-between gap-x-2">
         <h1 className="text-3xl font-bold w-3/4">Listado de Pókemones</h1>
         <Link
@@ -43,9 +43,11 @@ export default async function PokemonsPage() {
           Favorites
         </Link>
       </div>
-      {data.map((pokemon) => (
-        <PokemonCard key={pokemon.id} {...pokemon} />
-      ))}
+      <div className="mt-4 w-full grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        {data.map((pokemon) => (
+          <PokemonCard key={pokemon.id} {...pokemon} />
+        ))}
+      </div>
     </div>
   );
 }

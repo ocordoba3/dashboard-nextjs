@@ -1,14 +1,30 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import { SinglePokemon } from "../interfaces/single-pokemon";
 import Link from "next/link";
-import { GrFavorite } from "react-icons/gr";
+import { useAppDispatch, useAppSelector } from "@/store";
+import { updateFavs } from "@/store/pokemons";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 export const PokemonCard = ({ name, id }: SinglePokemon) => {
+  const dispatch = useAppDispatch();
+  const favorites = useAppSelector((state) => state.pokemons.favorites);
+  const isFavorite = favorites.some((pokemon) => pokemon.id === id);
+
   return (
     <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-[200px] transition-all hover:scale-105">
-      <div className="absolute right-4 top-2 cursor-pointer">
-        <GrFavorite size={20} color="gray" strokeWidth={1} />
+      <div
+        className="absolute right-4 top-2 cursor-pointer"
+        onClick={() => dispatch(updateFavs({ name, id }))}
+        aria-hidden="true"
+      >
+        {isFavorite ? (
+          <FaHeart size={20} color="red" strokeWidth={1} />
+        ) : (
+          <FaRegHeart size={20} color="gray" strokeWidth={1} />
+        )}
       </div>
       <div className="mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl flex flex-wrap justify-center min-h-[130px]">
         <Image
