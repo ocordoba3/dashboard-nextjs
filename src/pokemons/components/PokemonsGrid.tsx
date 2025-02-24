@@ -11,7 +11,10 @@ export const PokemonsGrid = ({ pokemons }: Props) => {
   return (
     <>
       {pokemons.length > 0 ? (
-        <div className="mt-4 w-full grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <div
+          className="mt-4 w-full grid gap-8 place-items-center"
+          style={{ gridTemplateColumns: "repeat(auto-fit,minmax(200px, 1fr))" }}
+        >
           {pokemons.map((pokemon) => (
             <PokemonCard key={pokemon.id} {...pokemon} />
           ))}
