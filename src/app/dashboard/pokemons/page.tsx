@@ -1,4 +1,4 @@
-import { PokemonCard } from "@/pokemons/components/PokemonCard";
+import { PokemonsGrid } from "@/pokemons/components/PokemonsGrid";
 import { PokemonResponse } from "@/pokemons/interfaces/response";
 import { SinglePokemon } from "@/pokemons/interfaces/single-pokemon";
 import { Metadata } from "next";
@@ -43,11 +43,7 @@ export default async function PokemonsPage() {
           Favorites
         </Link>
       </div>
-      <div className="mt-4 w-full grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        {data.map((pokemon) => (
-          <PokemonCard key={pokemon.id} {...pokemon} />
-        ))}
-      </div>
+      <PokemonsGrid pokemons={data} />
     </div>
   );
 }

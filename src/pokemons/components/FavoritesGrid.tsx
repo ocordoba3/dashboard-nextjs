@@ -1,17 +1,10 @@
 "use client";
 
-import React from "react";
-import { PokemonCard } from "./PokemonCard";
 import { useAppSelector } from "@/store";
+import { PokemonsGrid } from "./PokemonsGrid";
 
 export const FavoritesGrid = () => {
   const favorites = useAppSelector((state) => state.pokemons.favorites);
 
-  return (
-    <>
-      {favorites.map((pokemon) => (
-        <PokemonCard key={pokemon.id} {...pokemon} />
-      ))}
-    </>
-  );
+  return <PokemonsGrid pokemons={favorites} />;
 };
